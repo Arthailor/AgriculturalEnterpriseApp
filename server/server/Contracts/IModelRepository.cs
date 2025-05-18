@@ -62,7 +62,10 @@ namespace server.Contracts
     public interface IWarehouseRepository
     {
         IEnumerable<Warehouse> GetAllWarehouses(bool trackChanges);
-        Warehouse GetWarehouse(int id, bool trackChanges);
+        Warehouse GetWarehouse(Guid id, bool trackChanges);
+        Warehouse CreateWarehouse(WarehouseForCreationDto warehouse, bool trackChanges);
+        void DeleteWarehouse(Guid Id, bool trackChanges);
+        void UpdateWarehouse(Guid Id, WarehouseForCreationDto warehouseForUpdate, bool trackChanges);
     }
     public interface IWorkOnFieldsRepository
     {

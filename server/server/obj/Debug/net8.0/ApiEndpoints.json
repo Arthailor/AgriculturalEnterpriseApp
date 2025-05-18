@@ -429,6 +429,76 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "server.Controllers.WarehouseController",
+    "Method": "CreateWarehouse",
+    "RelativePath": "api/warehouses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "warehouse",
+        "Type": "server.DTO.WarehouseForCreationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "server.Controllers.WarehouseController",
+    "Method": "GetWarehouse",
+    "RelativePath": "api/warehouses/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetWarehouse"
+  },
+  {
+    "ContainingType": "server.Controllers.WarehouseController",
+    "Method": "DeleteWarehouse",
+    "RelativePath": "api/warehouses/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "server.Controllers.WarehouseController",
+    "Method": "UpdateWarehouse",
+    "RelativePath": "api/warehouses/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "warehouse",
+        "Type": "server.DTO.WarehouseForCreationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "server.Controllers.WorkOnFieldsController",
     "Method": "GetAllWorkOnFields",
     "RelativePath": "api/workonfields",
