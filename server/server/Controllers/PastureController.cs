@@ -54,5 +54,13 @@ namespace server.Controllers
             _pastureRepository.DeletePasture(id, false);
             return NoContent();
         }
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdatePasture(Guid id, [FromBody] PastureForCreationDto pasture)
+        {
+            if (pasture is null)
+                return BadRequest("PastureForCreationDto object is null");
+            _pastureRepository.UpdatePasture(id, pasture, true);
+            return NoContent();
+        }
     }
 }

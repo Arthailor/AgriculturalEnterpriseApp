@@ -8,7 +8,9 @@ namespace server.Repository
     public class PastureRepository : RepositoryBase<Pasture>, IPastureRepository
     {
         private readonly IMapper _mapper;
-        public PastureRepository(MyDBContext context) : base(context) { }
+        public PastureRepository(MyDBContext context, IMapper mapper) : base(context) {
+            _mapper = mapper;
+        }
         public IEnumerable<Pasture> GetAllPastures(bool trackChanges)
         {
             return FindAll(trackChanges)

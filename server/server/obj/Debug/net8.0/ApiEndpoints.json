@@ -221,6 +221,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "server.Controllers.PastureController",
+    "Method": "UpdatePasture",
+    "RelativePath": "api/pastures/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "pasture",
+        "Type": "server.DTO.PastureForCreationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "server.Controllers.RepairLogController",
     "Method": "GetAllRepairLogs",
     "RelativePath": "api/repairlogs",
