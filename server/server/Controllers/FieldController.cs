@@ -2,6 +2,7 @@
 using server.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using server.DTO;
 
 namespace server.Controllers
 {
@@ -15,10 +16,50 @@ namespace server.Controllers
             _fieldRepository = fieldRepository;
         }
         [HttpGet]
-        public IActionResult GetAllFields()
+        public IActionResult GetAllFields([FromQuery] int page = 1, [FromQuery] int limit = 9)
         {
-            var fields = _fieldRepository.GetAllFields(trackChanges: false);
-            return Ok(fields);
+            if (page <= 0 || limit <= 0)
+                return BadRequest("Page and limit must be greater than 0.");
+
+            int offset = (page - 1) * limit;
+
+            var pasturesWithCount = _fieldRepository.GetFieldsWithPagination(limit, offset, trackChanges: false);
+
+            return Ok(new
+            {
+                count = pasturesWithCount.TotalCount,
+                rows = pasturesWithCount.Fields
+            });
+        }
+        [HttpGet("{id:guid}", Name = "GetField")]
+        public IActionResult GetField(Guid id)
+        {
+            var field = _fieldRepository.GetField(id, trackChanges: false);
+            return Ok(field);
+        }
+        [HttpPost]
+        public IActionResult CreateField(Guid CropId, [FromBody] FieldForCreationDto field)
+        {
+            if (field is null)
+            {
+                return BadRequest("FieldForCreationDto object is null");
+            }
+            var fieldToReturn = _fieldRepository.CreateField(field, CropId, false);
+            return CreatedAtRoute("GetField", new { id = fieldToReturn.Id, CropId = CropId }, fieldToReturn);
+        }
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteField(Guid id)
+        {
+            _fieldRepository.DeleteField(id, false);
+            return NoContent();
+        }
+        [HttpPut("{id:guid}")]
+        public IActionResult UpdateField(Guid id, [FromBody] FieldForCreationDto field)
+        {
+            if (field is null)
+                return BadRequest("FieldForCreationDto object is null");
+            _fieldRepository.UpdateField(id, field, true);
+            return NoContent();
         }
     }
 }

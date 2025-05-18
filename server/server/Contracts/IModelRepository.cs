@@ -30,7 +30,11 @@ namespace server.Contracts
     public interface IFieldRepository
     {
         IEnumerable<Field> GetAllFields(bool trackChanges);
-        Field GetField(int id, bool trackChanges);
+        Field GetField(Guid id, bool trackChanges);
+        Field CreateField(FieldForCreationDto field, Guid CropId, bool trackChanges);
+        void DeleteField(Guid Id, bool trackChanges);
+        void UpdateField(Guid Id, FieldForCreationDto fieldForUpdate, bool trackChanges);
+        FieldPagedResult GetFieldsWithPagination(int limit, int offset, bool trackChanges);
     }
     public interface IEquipmentRepository
     {
