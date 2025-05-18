@@ -24,7 +24,10 @@ namespace server.Contracts
     public interface IEmployeeRepository
     {
         IEnumerable<Employee> GetAllEmployees(bool trackChanges);
-        Employee GetEmployee(int id, bool trackChanges);
+        Employee GetEmployee(Guid id, bool trackChanges);
+        Employee CreateEmployee(EmployeeForCreationDto employee, bool trackChanges);
+        void DeleteEmployee(Guid Id, bool trackChanges);
+        void UpdateEmployee(Guid Id, EmployeeForCreationDto employeeForUpdate, bool trackChanges);
     }
     public interface IEquipmentOnFieldsRepository
     {
