@@ -23,12 +23,12 @@ namespace server.Controllers
 
             int offset = (page - 1) * limit;
 
-            var pasturesWithCount = _fieldRepository.GetFieldsWithPagination(limit, offset, trackChanges: false);
+            var fieldsWithCount = _fieldRepository.GetFieldsWithPagination(limit, offset, trackChanges: false);
 
             return Ok(new
             {
-                count = pasturesWithCount.TotalCount,
-                rows = pasturesWithCount.Fields
+                count = fieldsWithCount.TotalCount,
+                rows = fieldsWithCount.Fields
             });
         }
         [HttpGet("{id:guid}", Name = "GetField")]

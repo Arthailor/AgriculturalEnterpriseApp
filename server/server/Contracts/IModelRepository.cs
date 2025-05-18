@@ -46,7 +46,11 @@ namespace server.Contracts
     public interface IEquipmentRepository
     {
         IEnumerable<Equipment> GetAllEquipment(bool trackChanges);
-        Equipment GetEquipment(int id, bool trackChanges);
+        Equipment GetEquipment(Guid id, bool trackChanges);
+        Equipment CreateEquipment(EquipmentForCreationDto equipment, Guid WarehouseId, bool trackChanges);
+        void DeleteEquipment(Guid Id, bool trackChanges);
+        void UpdateEquipment(Guid Id, EquipmentForCreationDto equipmentForUpdate, bool trackChanges);
+        EquipmentPagedResult GetEquipmentWithPagination(int limit, int offset, bool trackChanges);
     }
     public interface IPastureRepository
     {
