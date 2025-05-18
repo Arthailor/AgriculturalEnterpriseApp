@@ -15,7 +15,11 @@ namespace server.Contracts
     public interface ICropRepository
     {
         IEnumerable<Crop> GetAllCrops(bool trackChanges);
-        Crop GetCrop(int id, bool trackChanges);
+        Crop GetCrop(Guid id, bool trackChanges);
+        Crop CreateCrop(CropForCreationDto crop, bool trackChanges);
+        void DeleteCrop(Guid Id, bool trackChanges);
+        void UpdateCrop(Guid Id, CropForCreationDto cropForUpdate, bool trackChanges);
+        CropPagedResult GetCropsWithPagination(int limit, int offset, bool trackChanges);
     }
     public interface IEmployeeRepository
     {
