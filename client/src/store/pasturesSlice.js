@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  animals: [],
+  pastures: [],
   selected:{},
   page: 1,
   totalCount: 0,
   limit: 1
 };
 
-const animalsSlice = createSlice({
-  name: "animals",
+const pasturesSlice = createSlice({
+  name: "pastures",
   initialState,
   reducers: {
-    setAnimals: (state, action) => {
-      state.animals = action.payload;
+    setPastures: (state, action) => {
+      state.pastures = action.payload;
     },
     setSelected: (state, action) => {
       state.selected = action.payload;
@@ -30,5 +30,5 @@ const animalsSlice = createSlice({
   },
 });
 
-export const { setAnimals, setSelected, setPage, setTotalCount, setLimit } = animalsSlice.actions;
-export default animalsSlice.reducer;
+export const { setPastures, setSelected, setPage, setTotalCount, setLimit } = pasturesSlice.actions;
+export default pasturesSlice.reducer;

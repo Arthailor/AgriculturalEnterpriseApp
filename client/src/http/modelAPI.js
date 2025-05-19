@@ -24,3 +24,28 @@ export const updateAnimal = async (id, animal) => {
     const { data } = await $host.put(`api/animals/${id}`, animal)
     return data
 }
+
+//Pastures
+export const fetchPastures = async (page, limit) => {
+    const { data } = await $host.get('api/pastures', {
+        params: {
+            page, limit
+        }
+    })
+    return data
+}
+
+export const createPasture = async (fieldid, pasture) => {
+    const { data } = await $host.post(`api/pastures?FieldId=${fieldid}`, pasture)
+    return data
+}
+
+export const deletePasture = async (id) => {
+    const { data } = await $host.delete('api/pastures/' + id)
+    return data
+}
+
+export const updatePasture = async (id, pasture) => {
+    const { data } = await $host.put(`api/pastures/${id}`, pasture)
+    return data
+}
