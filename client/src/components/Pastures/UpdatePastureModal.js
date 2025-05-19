@@ -1,36 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { updateAnimal } from '../../http/modelAPI'
+import { updatePasture } from '../../http/modelAPI'
 import { useSelector } from 'react-redux';
 
-export default function UpdateAnimalModal({ show, onHide, reload }) {
+export default function UpdatePastureModal({ show, onHide, reload }) {
 
     const { selected } = useSelector((state) => {
-        return state.animals;
+        return state.pastures;
     })
 
     const [name, setName] = useState('')
-    const [amount, setAmount] = useState('')
-    const [pastureid, setPastureId] = useState('')
+    const [area, setArea] = useState('')
 
     useEffect(() => {
     if (selected) {
         setName(selected.name || '')
-        setAmount(selected.amount || '')
-        setPastureId(selected.pastureId || '') 
-        console.log(selected)
+        setArea(selected.area || '')
     }
 }, [selected])
 
-    const updtAnimal = async () => {
+    const updtPasture = async () => {
 
         try {
-            const animal = {
-                Amount: amount,
-                Name: name
+            const pasture = {
+                Name: name,
+                Area: area
             }
             let data;
-            data = await updateAnimal(selected.id, animal).then(() => {
+            data = await updatePasture(selected.id, pasture).then(() => {
                 onHide('')
                 reload()
             })
@@ -47,34 +44,27 @@ export default function UpdateAnimalModal({ show, onHide, reload }) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Update animal
+                    Update pasture
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Select className="mt-2" value={name} onChange={e => setName(e.target.value)}>
-                        <option value=''>Select type</option>
-                        <option value='Овцы'>Овцы</option>
-                        <option value='Коровы'>Коровы</option>
-                        <option value='Куры'>Куры</option>
-                        <option value='Свиньи'>Свиньи</option>
-                    </Form.Select>
-                    <Form.Control  maxLength="3" className="mt-2" placeholder={"Amount"} value={amount} onChange={e => setAmount(e.target.value.replace(/\D/g, ""))} />
-                    <Form.Select className="mt-2" value={pastureid} onChange={e => setPastureId(e.target.value)}>
-                        <option value=''>Select pasture</option>
-                        <option value='66666666-6666-6666-6666-666666666666'>Pasture 1</option>
-                        {/* {classes.map(cls =>
-                            <option value={cls.class_id}>{cls.name}</option>
-                        )} */}
-                    </Form.Select>
+                    <Form.Control className="mt-2" placeholder={"Name"} value={name} onChange={e => setName(e.target.value)} />
+                    <Form.Control className="mt-2" placeholder={"Area"} value={area} onChange={e => setArea(prev => {
+                                                                                                                            let value = e.target.value.replace(/[^0-9.]/g, "");
+                                                                                                                            const parts = value.split(".");
+                                                                                                                            if (parts.length > 2) {
+                                                                                                                                value = parts[0] + "." + parts.slice(1).join("");
+                                                                                                                            }
+                                                                                                                            return value;})} />
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Close</Button>
-                {name === '' || amount === '' || pastureid === '' ?
+                {name === '' || area === '' ?
                     <Button variant="outline-success" disabled>Update</Button>
                     :
-                    <Button variant="outline-success" onClick={updtAnimal}>Update</Button>
+                    <Button variant="outline-success" onClick={updtPasture}>Update</Button>
                 }
             </Modal.Footer>
         </Modal>

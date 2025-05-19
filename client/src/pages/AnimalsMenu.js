@@ -9,6 +9,7 @@ import CreateAnimalModal from '../components/Animals/CreateAnimalModal';
 import { setName } from '../store/pageSlice';
 import PasturesList from '../components/Pastures/PasturesList';
 import { setPastures, setTotalCount as setPasturesTotalCount, setPage as setPasturesPage } from '../store/pasturesSlice';
+import CreatePastureModal from '../components/Pastures/CreatePastureModal';
 
 export default function EmployeeListMenu() {
     const { animals, page: animalsPage, totalCount: animalsTotalCount, limit: animalsLimit} = useSelector((state) => {
@@ -66,6 +67,7 @@ export default function EmployeeListMenu() {
     }, [pasturesPage, pasturesTotalCount])
 
     const [createAnimalVisible, setCreateAnimalVisible] = useState(false)
+    const [createPastureVisible, setCreatePastureVisible] = useState(false)
 
     return (
         <Container>
@@ -81,11 +83,12 @@ export default function EmployeeListMenu() {
                     <PasturesList pastures = {pastures} reload = {loadPastures}/>
                 </Col>
                 <Col md={2}>
-                    <Button variant={"outline-success"} style={{ width: "100%" }} className="mt-4 p-2" onClick={() => setCreateAnimalVisible(true)}>Add animal</Button>
+                    <Button variant={"outline-success"} style={{ width: "100%" }} className="mt-4 p-2" onClick={() => setCreatePastureVisible(true)}>Add pasture</Button>
                     <Pages totalCount={pasturesTotalCount} limit={pasturesLimit} page={pasturesPage} handlePage={(p) => handlePasturesPage(p)} />
                 </Col>
             </Row>
-            <CreateAnimalModal show={createAnimalVisible} onHide={() => setCreateAnimalVisible(false)}/>
+            <CreateAnimalModal show={createAnimalVisible} onHide={() => setCreateAnimalVisible(false)} pastures={pastures}/>
+            <CreatePastureModal show={createPastureVisible} onHide={() => setCreatePastureVisible(false)}/>
         </Container>
     )
 }

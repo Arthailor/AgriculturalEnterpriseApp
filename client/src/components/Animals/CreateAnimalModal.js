@@ -4,7 +4,7 @@ import { createAnimal } from '../../http/modelAPI'
 import { setPage, setTotalCount } from '../../store/animalsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-export default function CreateAnimalModal({ show, onHide }) {
+export default function CreateAnimalModal({ show, onHide, pastures }) {
     const { totalCount } = useSelector((state) => {
         return state.animals;
     })
@@ -66,10 +66,9 @@ export default function CreateAnimalModal({ show, onHide }) {
                     <Form.Control  maxLength="3" className="mt-2" placeholder={"Amount"} value={amount} onChange={e => setAmount(e.target.value.replace(/\D/g, ""))} />
                     <Form.Select className="mt-2" value={pastureid} onChange={e => setPastureId(e.target.value)}>
                         <option value=''>Select pasture</option>
-                        <option value='66666666-6666-6666-6666-666666666666'>Pasture 1</option>
-                        {/* {classes.map(cls =>
-                            <option value={cls.class_id}>{cls.name}</option>
-                        )} */}
+                        {pastures.map(p =>
+                            <option value={p.id}>{p.name}</option>
+                        )}
                     </Form.Select>
                 </Form>
             </Modal.Body>

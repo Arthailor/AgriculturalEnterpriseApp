@@ -11,14 +11,11 @@ export default function UpdateAnimalModal({ show, onHide, reload }) {
 
     const [name, setName] = useState('')
     const [amount, setAmount] = useState('')
-    const [pastureid, setPastureId] = useState('')
 
     useEffect(() => {
     if (selected) {
         setName(selected.name || '')
         setAmount(selected.amount || '')
-        setPastureId(selected.pastureId || '') 
-        console.log(selected)
     }
 }, [selected])
 
@@ -60,18 +57,11 @@ export default function UpdateAnimalModal({ show, onHide, reload }) {
                         <option value='Свиньи'>Свиньи</option>
                     </Form.Select>
                     <Form.Control  maxLength="3" className="mt-2" placeholder={"Amount"} value={amount} onChange={e => setAmount(e.target.value.replace(/\D/g, ""))} />
-                    <Form.Select className="mt-2" value={pastureid} onChange={e => setPastureId(e.target.value)}>
-                        <option value=''>Select pasture</option>
-                        <option value='66666666-6666-6666-6666-666666666666'>Pasture 1</option>
-                        {/* {classes.map(cls =>
-                            <option value={cls.class_id}>{cls.name}</option>
-                        )} */}
-                    </Form.Select>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Close</Button>
-                {name === '' || amount === '' || pastureid === '' ?
+                {name === '' || amount === '' ?
                     <Button variant="outline-success" disabled>Update</Button>
                     :
                     <Button variant="outline-success" onClick={updtAnimal}>Update</Button>

@@ -3,7 +3,7 @@ import { ListGroup, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { deletePasture } from '../../http/modelAPI'
 import { setSelected, setTotalCount } from '../../store/pasturesSlice'
-import UpdateAnimalModal from './UpdatePastureModal'
+import UpdatePastureModal from './UpdatePastureModal'
 
 export default function PasturesList({ pastures, reload }) {
 
@@ -24,7 +24,7 @@ export default function PasturesList({ pastures, reload }) {
         dispatch(setTotalCount(c))
     }
 
-    const [updateAnimalVisible, setUpdateAnimalVisible] = useState(false)
+    const [updatePastureVisible, setUpdatePastureVisible] = useState(false)
 
     return (
         <div>
@@ -45,16 +45,16 @@ export default function PasturesList({ pastures, reload }) {
                             className="d-flex justify-content-between"
                         >
                             <div style={{ display: 'flex', alignItems: "center" }}>
-                                <p>Id:<br/>{p.id}</p>
+                                <p>Name: {p.name}<br/>Area: {p.area} km^2</p>
                             </div>
                             <div>
-                                <Button className="m-1 " variant="outline-warning" onClick={() => {handleSelected(p); setUpdateAnimalVisible(true)}}>Update</Button>
+                                <Button className="m-1 " variant="outline-warning" onClick={() => {handleSelected(p); setUpdatePastureVisible(true)}}>Update</Button>
                                 <Button className="m-1 " variant="outline-danger" onClick={() => {delPasture(p.id)}}>Delete</Button>
                             </div>
                         </ListGroup.Item>
                     )}
                     </ListGroup>
-                    <UpdateAnimalModal show={updateAnimalVisible} onHide={() => setUpdateAnimalVisible(false)} reload = {reload}/>
+                    <UpdatePastureModal show={updatePastureVisible} onHide={() => setUpdatePastureVisible(false)} reload = {reload}/>
                 </div>
             }
         </div>
