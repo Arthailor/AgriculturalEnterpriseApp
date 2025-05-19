@@ -66,7 +66,11 @@ namespace server.Contracts
     public interface IRepairLogRepository
     {
         IEnumerable<RepairLog> GetAllRepairLogs(bool trackChanges);
-        RepairLog GetRepairLog(int id, bool trackChanges);
+        RepairLog GetRepairLog(Guid id, bool trackChanges);
+        RepairLog CreateRepairLog(RepairLogForCreationDto repairlog, Guid EquipmentId, Guid EmployeeId, bool trackChanges);
+        void DeleteRepairLog(Guid Id, bool trackChanges);
+        void UpdateRepairLog(Guid Id, RepairLogForCreationDto repairlogForUpdate, bool trackChanges);
+        RepairLogPagedResult GetRepairLogsWithPagination(int limit, int offset, bool trackChanges);
     }
     public interface IWarehouseRepository
     {
