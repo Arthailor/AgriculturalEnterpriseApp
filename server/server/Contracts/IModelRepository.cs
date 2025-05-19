@@ -80,5 +80,7 @@ namespace server.Contracts
     {
         IEnumerable<WorkOnFields> GetAllWorkOnFields(bool trackChanges);
         WorkOnFields GetWorkOnFields(Guid EmployeeId, Guid FieldId, bool trackChanges);
+        WorkOnFields CreateWorkOnFields(Guid EmployeeId, Guid FieldId, bool trackChanges);
+        void DeleteWorkOnFields(Guid EmployeeId, Guid FieldId, bool trackChanges);
     }
 }

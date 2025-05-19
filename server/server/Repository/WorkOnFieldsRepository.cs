@@ -9,11 +9,29 @@ namespace server.Repository
         public WorkOnFieldsRepository(MyDBContext context) : base(context) { }
         public IEnumerable<WorkOnFields> GetAllWorkOnFields(bool trackChanges)
         {
-            return FindAll(trackChanges).Include(x => x.Employee).Include(x => x.Field).OrderBy(x => x.FieldId).ToList();
+            return FindAll(trackChanges).OrderBy(x => x.FieldId).ToList();
         }
         public WorkOnFields GetWorkOnFields(Guid EmployeeId, Guid FieldId, bool trackChanges)
         {
-            return FindByCondition(x => x.EmployeeId.Equals(EmployeeId) && x.FieldId.Equals(FieldId), trackChanges).Include(x => x.Field).Include(x => x.Employee).SingleOrDefault();
+            return FindByCondition(x => x.EmployeeId.Equals(EmployeeId) && x.FieldId.Equals(FieldId), trackChanges).SingleOrDefault();
+        }
+        public WorkOnFields CreateWorkOnFields(Guid EmployeeId, Guid FieldId, bool trackChanges)
+        {
+            var workOFEntity = new WorkOnFields();
+            workOFEntity.EmployeeId = EmployeeId;
+            workOFEntity.FieldId = FieldId;
+
+            Create(workOFEntity);
+            return workOFEntity;
+        }
+        public void DeleteWorkOnFields(Guid EmployeeId, Guid FieldId, bool trackChanges)
+        {
+            var workOF = FindByCondition(x => x.EmployeeId.Equals(EmployeeId) && x.FieldId.Equals(FieldId), trackChanges).SingleOrDefault();
+            if (workOF != null)
+            {
+                Delete(workOF);
+                _context.SaveChanges();
+            }
         }
     }
 }

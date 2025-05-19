@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FAA385EF-DA27-4E5D-9254-7C851446F4D8}|server\\server.csproj|c:\\users\\arthailor\\desktop\\agriculturalenterpriseapp\\server\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAA385EF-DA27-4E5D-9254-7C851446F4D8}|server\\server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FAA385EF-DA27-4E5D-9254-7C851446F4D8}|server\\server.csproj|c:\\users\\arthailor\\desktop\\agriculturalenterpriseapp\\server\\server\\controllers\\workonfieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAA385EF-DA27-4E5D-9254-7C851446F4D8}|server\\server.csproj|solutionrelative:server\\controllers\\workonfieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAA385EF-DA27-4E5D-9254-7C851446F4D8}|server\\server.csproj|c:\\users\\arthailor\\desktop\\agriculturalenterpriseapp\\server\\server\\controllers\\equipmentonfieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAA385EF-DA27-4E5D-9254-7C851446F4D8}|server\\server.csproj|solutionrelative:server\\controllers\\equipmentonfieldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\server\\Program.cs",
-              "RelativeDocumentMoniker": "server\\Program.cs",
-              "ToolTip": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\server\\Program.cs",
-              "RelativeToolTip": "server\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwB8AAABUAAAAAAAAAA==",
+              "Title": "WorkOnFieldsController.cs",
+              "DocumentMoniker": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\server\\Controllers\\WorkOnFieldsController.cs",
+              "RelativeDocumentMoniker": "server\\Controllers\\WorkOnFieldsController.cs",
+              "ToolTip": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\server\\Controllers\\WorkOnFieldsController.cs",
+              "RelativeToolTip": "server\\Controllers\\WorkOnFieldsController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T15:00:17.002Z",
+              "WhenOpened": "2025-05-19T15:25:21.287Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EquipmentOnFieldsController.cs",
+              "DocumentMoniker": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\server\\Controllers\\EquipmentOnFieldsController.cs",
+              "RelativeDocumentMoniker": "server\\Controllers\\EquipmentOnFieldsController.cs",
+              "ToolTip": "C:\\Users\\Arthailor\\Desktop\\AgriculturalEnterpriseApp\\server\\server\\Controllers\\EquipmentOnFieldsController.cs",
+              "RelativeToolTip": "server\\Controllers\\EquipmentOnFieldsController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T15:25:20.276Z"
             }
           ]
         }

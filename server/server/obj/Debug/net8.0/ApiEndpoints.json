@@ -727,5 +727,69 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "server.Controllers.WorkOnFieldsController",
+    "Method": "CreateWorkOnFields",
+    "RelativePath": "api/workonfields",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EmployeeId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "FieldId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "server.Controllers.WorkOnFieldsController",
+    "Method": "GetWorkOnFields",
+    "RelativePath": "api/workonfields/{EmployeeId}\u0026{FieldId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EmployeeId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "FieldId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetWorkOnFields"
+  },
+  {
+    "ContainingType": "server.Controllers.WorkOnFieldsController",
+    "Method": "DeleteWorkOnFields",
+    "RelativePath": "api/workonfields/{EmployeeId}\u0026{FieldId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EmployeeId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "FieldId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

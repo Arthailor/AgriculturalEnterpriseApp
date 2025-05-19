@@ -1152,6 +1152,97 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "WorkOnFields"
+        ],
+        "parameters": [
+          {
+            "name": "EmployeeId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "FieldId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/workonfields/{EmployeeId}&{FieldId}": {
+      "get": {
+        "tags": [
+          "WorkOnFields"
+        ],
+        "operationId": "GetWorkOnFields",
+        "parameters": [
+          {
+            "name": "EmployeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "FieldId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "WorkOnFields"
+        ],
+        "parameters": [
+          {
+            "name": "EmployeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "FieldId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     }
   },

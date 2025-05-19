@@ -20,5 +20,23 @@ namespace server.Controllers
             var workonfields = _workonfieldsRepository.GetAllWorkOnFields(trackChanges: false);
             return Ok(workonfields);
         }
+        [HttpGet("{EmployeeId:guid}&{FieldId:guid}", Name = "GetWorkOnFields")]
+        public IActionResult GetWorkOnFields(Guid EmployeeId, Guid FieldId)
+        {
+            var workonfields = _workonfieldsRepository.GetWorkOnFields(EmployeeId, FieldId, trackChanges: false);
+            return Ok(workonfields);
+        }
+        [HttpPost]
+        public IActionResult CreateWorkOnFields(Guid EmployeeId, Guid FieldId)
+        {
+            var workonfields = _workonfieldsRepository.CreateWorkOnFields(EmployeeId, FieldId, trackChanges: false);
+            return CreatedAtRoute("GetWorkOnFields", new { EmployeeId = workonfields.EmployeeId, FieldId = workonfields.FieldId }, workonfields);
+        }
+        [HttpDelete("{EmployeeId:guid}&{FieldId:guid}")]
+        public IActionResult DeleteWorkOnFields(Guid EmployeeId, Guid FieldId)
+        {
+            _workonfieldsRepository.DeleteWorkOnFields(EmployeeId, FieldId, false);
+            return NoContent();
+        }
     }
 }
