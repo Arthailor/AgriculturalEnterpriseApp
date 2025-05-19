@@ -599,6 +599,97 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "EquipmentOnFields"
+        ],
+        "parameters": [
+          {
+            "name": "EquipmentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "FieldId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/equipmentonfields/{EquipmentId}&{FieldId}": {
+      "get": {
+        "tags": [
+          "EquipmentOnFields"
+        ],
+        "operationId": "GetEquipmentOnFields",
+        "parameters": [
+          {
+            "name": "EquipmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "FieldId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "EquipmentOnFields"
+        ],
+        "parameters": [
+          {
+            "name": "EquipmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "FieldId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/fields": {

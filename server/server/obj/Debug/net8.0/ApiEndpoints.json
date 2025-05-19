@@ -373,6 +373,70 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "server.Controllers.EquipmentOnFieldsController",
+    "Method": "CreateEquipmentOnFields",
+    "RelativePath": "api/equipmentonfields",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EquipmentId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "FieldId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "server.Controllers.EquipmentOnFieldsController",
+    "Method": "GetEquipmentOnFields",
+    "RelativePath": "api/equipmentonfields/{EquipmentId}\u0026{FieldId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EquipmentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "FieldId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetEquipmentOnFields"
+  },
+  {
+    "ContainingType": "server.Controllers.EquipmentOnFieldsController",
+    "Method": "DeleteEquipmentOnFields",
+    "RelativePath": "api/equipmentonfields/{EquipmentId}\u0026{FieldId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EquipmentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "FieldId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "server.Controllers.FieldController",
     "Method": "GetAllFields",
     "RelativePath": "api/fields",

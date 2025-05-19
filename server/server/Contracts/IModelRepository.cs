@@ -33,6 +33,8 @@ namespace server.Contracts
     {
         IEnumerable<EquipmentOnFields> GetAllEquipmentOnFields(bool trackChanges);
         EquipmentOnFields GetEquipmentOnFields(Guid EquipmentId, Guid FieldId, bool trackChanges);
+        EquipmentOnFields CreateEquipmentOnFields(Guid EquipmentId, Guid FieldId, bool trackChanges);
+        void DeleteEquipmentOnFields(Guid EquipmentId, Guid FieldId, bool trackChanges);
     }
     public interface IFieldRepository
     {
