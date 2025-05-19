@@ -1,4 +1,4 @@
 ﻿namespace server.DTO
 {
-    public record PastureForCreationDto(double Area);
+    public record PastureForCreationDto(string Name, double Area);
 }

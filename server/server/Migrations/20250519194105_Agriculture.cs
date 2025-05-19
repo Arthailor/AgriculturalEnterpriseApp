@@ -114,6 +114,8 @@ namespace server.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Area = table.Column<double>(type: "double", nullable: false),
                     FieldId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
                 },
@@ -263,8 +265,8 @@ namespace server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Pastures",
-                columns: new[] { "Id", "Area", "FieldId" },
-                values: new object[] { new Guid("66666666-6666-6666-6666-666666666666"), 5.5, new Guid("44444444-4444-4444-4444-444444444444") });
+                columns: new[] { "Id", "Area", "FieldId", "Name" },
+                values: new object[] { new Guid("66666666-6666-6666-6666-666666666666"), 5.5, new Guid("44444444-4444-4444-4444-444444444444"), "Пастбище 1" });
 
             migrationBuilder.InsertData(
                 table: "RepairLogs",

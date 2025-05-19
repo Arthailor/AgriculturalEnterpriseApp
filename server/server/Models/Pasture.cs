@@ -6,6 +6,7 @@ namespace server.Models
     {
         [Key]
         public Guid Id { get; set; } //PK
+        public string Name { get; set; }
         public double Area { get; set; }
         public Guid FieldId { get; set; } //FK
 

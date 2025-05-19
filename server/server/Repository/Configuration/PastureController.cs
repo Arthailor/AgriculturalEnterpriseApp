@@ -13,6 +13,7 @@ namespace server.Repository.Configuration
                 new Pasture
                 {
                     Id = new Guid("66666666-6666-6666-6666-666666666666"),
+                    Name = "Пастбище 1",
                     Area = 5.5,
                     FieldId = new Guid("44444444-4444-4444-4444-444444444444")
                 }

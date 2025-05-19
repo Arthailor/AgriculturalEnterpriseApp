@@ -12,7 +12,7 @@ using server.Repository;
 namespace server.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20250512162832_Agriculture")]
+    [Migration("20250519194105_Agriculture")]
     partial class Agriculture
     {
         /// <inheritdoc />
@@ -227,6 +227,10 @@ namespace server.Migrations
                     b.Property<Guid>("FieldId")
                         .HasColumnType("char(36)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FieldId");
@@ -238,7 +242,8 @@ namespace server.Migrations
                         {
                             Id = new Guid("66666666-6666-6666-6666-666666666666"),
                             Area = 5.5,
-                            FieldId = new Guid("44444444-4444-4444-4444-444444444444")
+                            FieldId = new Guid("44444444-4444-4444-4444-444444444444"),
+                            Name = "Пастбище 1"
                         });
                 });
 
