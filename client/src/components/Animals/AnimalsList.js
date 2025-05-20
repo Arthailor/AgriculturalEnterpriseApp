@@ -57,7 +57,7 @@ export default function AnimalsList({ animals, reload }) {
                             key={a.id}
                             className="d-flex justify-content-between"
                         >
-                            <div style={{ display: 'flex', alignItems: "center" }}>{a.name} - {a.amount} - {pasture ? pasture.name : 'Unknown pasture'} </div>
+                            <div style={{ display: 'flex', alignItems: "center" }}>{a.name} - {a.amount} - {pasture ? pasture.name : ''}</div>
                             <div>
                                 <Button className="m-1 " variant="outline-warning" onClick={() => {handleSelected(a); setUpdateAnimalVisible(true)}}>Update</Button>
                                 <Button className="m-1 " variant="outline-danger" onClick={() => {delAnimal(a.id)}}>Delete</Button>

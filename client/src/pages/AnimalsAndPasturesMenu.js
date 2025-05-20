@@ -11,7 +11,7 @@ import PasturesList from '../components/Pastures/PasturesList';
 import { setPastures, setTotalCount as setPasturesTotalCount, setPage as setPasturesPage } from '../store/pasturesSlice';
 import CreatePastureModal from '../components/Pastures/CreatePastureModal';
 
-export default function EmployeeListMenu() {
+export default function AnimalsAndPasturesListMenu() {
     const { animals, page: animalsPage, totalCount: animalsTotalCount, limit: animalsLimit} = useSelector((state) => {
       return state.animals;
     });

@@ -49,3 +49,53 @@ export const updatePasture = async (id, pasture) => {
     const { data } = await $host.put(`api/pastures/${id}`, pasture)
     return data
 }
+
+//Crops
+export const fetchCrops = async (page, limit) => {
+    const { data } = await $host.get('api/crops', {
+        params: {
+            page, limit
+        }
+    })
+    return data
+}
+
+export const createCrop = async (crop) => {
+    const { data } = await $host.post(`api/crops`, crop)
+    return data
+}
+
+export const deleteCrop = async (id) => {
+    const { data } = await $host.delete('api/crops/' + id)
+    return data
+}
+
+export const updateCrop = async (id, crop) => {
+    const { data } = await $host.put(`api/crops/${id}`, crop)
+    return data
+}
+
+//Fields
+export const fetchFields = async (page, limit) => {
+    const { data } = await $host.get('api/fields', {
+        params: {
+            page, limit
+        }
+    })
+    return data
+}
+
+export const createField = async (cropid, field) => {
+    const { data } = await $host.post(`api/fields?CropId=${cropid}`, field)
+    return data
+}
+
+export const deleteField = async (id) => {
+    const { data } = await $host.delete('api/fields/' + id)
+    return data
+}
+
+export const updateField = async (id, field) => {
+    const { data } = await $host.put(`api/fields/${id}`, field)
+    return data
+}
