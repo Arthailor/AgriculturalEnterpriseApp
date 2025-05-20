@@ -22,7 +22,7 @@ export default function EmployeeListMenu() {
 
     const dispatch = useDispatch();
     
-    dispatch(setName('Animals'))
+    dispatch(setName('Animals and pastures'))
 
     const handleAnimals = (t) => {
         dispatch(setAnimals(t))
@@ -53,7 +53,7 @@ export default function EmployeeListMenu() {
 
     useEffect(() => {
       loadAnimals()
-    }, [animalsPage, animalsTotalCount])
+    }, [animalsPage, animalsTotalCount, pasturesTotalCount])
 
     const loadPastures = () => {
         fetchPastures(pasturesPage, pasturesLimit).then(data => {

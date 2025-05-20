@@ -13,6 +13,7 @@ namespace server.Repository.Configuration
                 new Field
                 {
                     Id = new Guid("44444444-4444-4444-4444-444444444444"),
+                    Name = "Поле 1",
                     CultivatedArea = 25.5,
                     UncultivatedArea = 4.5,
                     CropId = new Guid("22222222-2222-2222-2222-222222222222")

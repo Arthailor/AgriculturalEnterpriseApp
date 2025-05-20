@@ -6,6 +6,7 @@ namespace server.Models
     {
         [Key]
         public Guid Id { get; set; } //PK
+        public string Name { get; set; }
         public double CultivatedArea { get; set; }
         public double UncultivatedArea { get; set; }
         public Guid CropId { get; set; } //FK

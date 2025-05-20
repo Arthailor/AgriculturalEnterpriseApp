@@ -22,7 +22,7 @@ export default function MainMenu() {
               <NavLink to={ANIMALS_ROUTE} className="mt-3" style={{ textDecoration: 'none' }}>
                 <Button className="d-flex justify-content-between" variant={"outline-primary"} style={{ width: "100%" }}>
                   <Image width="20" src="./cow.png" fluid />
-                  <div style={{ marginRight: 20 }}>Animals</div>
+                  <div style={{ marginRight: 20 }}>Animals and pastures</div>
                   <div></div>
                 </Button>
               </NavLink>

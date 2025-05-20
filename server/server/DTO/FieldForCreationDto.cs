@@ -1,4 +1,4 @@
 ﻿namespace server.DTO
 {
-    public record FieldForCreationDto(double CultivatedArea, double UncultivatedArea);
+    public record FieldForCreationDto(string Name, double CultivatedArea, double UncultivatedArea);
 }

@@ -71,6 +71,8 @@ namespace server.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     CultivatedArea = table.Column<double>(type: "double", nullable: false),
                     UncultivatedArea = table.Column<double>(type: "double", nullable: false),
                     CropId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
@@ -250,8 +252,8 @@ namespace server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Fields",
-                columns: new[] { "Id", "CropId", "CultivatedArea", "UncultivatedArea" },
-                values: new object[] { new Guid("44444444-4444-4444-4444-444444444444"), new Guid("22222222-2222-2222-2222-222222222222"), 25.5, 4.5 });
+                columns: new[] { "Id", "CropId", "CultivatedArea", "Name", "UncultivatedArea" },
+                values: new object[] { new Guid("44444444-4444-4444-4444-444444444444"), new Guid("22222222-2222-2222-2222-222222222222"), 25.5, "Поле 1", 4.5 });
 
             migrationBuilder.InsertData(
                 table: "MachineryEquipment",

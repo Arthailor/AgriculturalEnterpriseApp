@@ -193,6 +193,10 @@ namespace server.Migrations
                     b.Property<double>("CultivatedArea")
                         .HasColumnType("double");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<double>("UncultivatedArea")
                         .HasColumnType("double");
 
@@ -208,6 +212,7 @@ namespace server.Migrations
                             Id = new Guid("44444444-4444-4444-4444-444444444444"),
                             CropId = new Guid("22222222-2222-2222-2222-222222222222"),
                             CultivatedArea = 25.5,
+                            Name = "Поле 1",
                             UncultivatedArea = 4.5
                         });
                 });
