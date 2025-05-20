@@ -4,10 +4,11 @@ import { createPasture } from '../../http/modelAPI'
 import { setPage, setTotalCount } from '../../store/pasturesSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-export default function CreatePastureModal({ show, onHide }) {
+export default function CreatePastureModal({ show, onHide, fields }) {
     const { totalCount } = useSelector((state) => {
         return state.pastures;
     })
+
     const [name, setName] = useState('')
     const [area, setArea] = useState('')
     const [fieldid, setFieldId] = useState('')
@@ -65,7 +66,9 @@ export default function CreatePastureModal({ show, onHide }) {
                                                                                                                             return value;})} />
                     <Form.Select className="mt-2" value={fieldid} onChange={e => setFieldId(e.target.value)}>
                         <option value=''>Select field</option>
-                        <option value='44444444-4444-4444-4444-444444444444'>Field placeholder</option>
+                        {fields.map(f =>
+                            <option value={f.id}>{f.name}</option>
+                        )}
                     </Form.Select>
                 </Form>
             </Modal.Body>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAnimals, setTotalCount as setAnimalsTotalCount, setPage as setAnimalsPage} from '../store/animalsSlice';
-import { fetchAnimals, fetchPastures } from '../http/modelAPI';
+import { fetchAnimals, fetchFields, fetchPastures } from '../http/modelAPI';
 import Pages from '../components/Pages'
 import AnimalsList from '../components/Animals/AnimalsList';
 import CreateAnimalModal from '../components/Animals/CreateAnimalModal';
@@ -43,6 +43,14 @@ export default function AnimalsAndPasturesListMenu() {
     const handlePasturesPage = (n) => {
       dispatch(setPasturesPage(n))
     }
+
+    const [fields, setFields] = useState([])
+
+    useEffect(() => {
+      fetchFields(1, 9999).then(data => {
+          setFields(data.rows)
+      })
+    }, [])
 
     const loadAnimals = () => {
         fetchAnimals(animalsPage, animalsLimit).then(data => {
@@ -88,7 +96,7 @@ export default function AnimalsAndPasturesListMenu() {
                 </Col>
             </Row>
             <CreateAnimalModal show={createAnimalVisible} onHide={() => setCreateAnimalVisible(false)} pastures={pastures}/>
-            <CreatePastureModal show={createPastureVisible} onHide={() => setCreatePastureVisible(false)}/>
+            <CreatePastureModal show={createPastureVisible} fields={fields} onHide={() => setCreatePastureVisible(false)}/>
         </Container>
     )
 }
