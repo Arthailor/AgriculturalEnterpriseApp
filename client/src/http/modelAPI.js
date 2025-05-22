@@ -101,12 +101,8 @@ export const updateField = async (id, field) => {
 }
 
 //Employees
-export const fetchEmployees = async (page, limit) => {
-    const { data } = await $host.get('api/employees', {
-        params: {
-            page, limit
-        }
-    })
+export const fetchEmployees = async () => {
+    const { data } = await $host.get('api/employees')
     return data
 }
 
@@ -122,5 +118,21 @@ export const deleteEmployee = async (id) => {
 
 export const updateEmployee = async (id, crop) => {
     const { data } = await $host.put(`api/employees/${id}`, crop)
+    return data
+}
+
+//Field Jobs
+export const fetchFieldJobs = async () => {
+    const { data } = await $host.get('api/workonfields')
+    return data
+}
+
+export const createFieldJob = async (employeeid, fieldid) => {
+    const { data } = await $host.post(`api/workonfields?EmployeeId=${employeeid}&FieldId=${fieldid}`)
+    return data
+}
+
+export const deleteFieldJob = async (employeeid, fieldid) => {
+    const { data } = await $host.delete('api/workonfields/' + employeeid + "&" + fieldid)
     return data
 }

@@ -1,7 +1,8 @@
 import MainMenu from "./pages/MainMenu"
 import AnimalsAndPasturesMenu from "./pages/AnimalsAndPasturesMenu"
 import CropsAndFieldsListMenu from "./pages/CropsAndFieldsMenu"
-import { MAIN_ROUTE, ANIMALS_AND_PASTURES_ROUTE, CROPS_AND_FIELDS_ROUTE} from "./utils/consts"
+import EmployeesOnFieldsMenu from "./pages/EmployeesOnFieldsMenu"
+import { MAIN_ROUTE, ANIMALS_AND_PASTURES_ROUTE, CROPS_AND_FIELDS_ROUTE, FIELDJOBS_ROUTE} from "./utils/consts"
 
 export const routes = [
     {
@@ -15,5 +16,9 @@ export const routes = [
     {
         path: CROPS_AND_FIELDS_ROUTE,
         Component: CropsAndFieldsListMenu
+    },
+    {
+        path: FIELDJOBS_ROUTE,
+        Component: EmployeesOnFieldsMenu
     }
 ]
