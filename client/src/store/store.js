@@ -3,6 +3,7 @@ import animalsReducer from "./animalsSlice"
 import pasturesReducer from "./pasturesSlice"
 import cropsReducer from "./cropsSlice"
 import fieldsReducer from "./fieldsSlice"
+import employeesReducer from "./employeesSlice"
 import pageReducer from "./pageSlice"
 
 const store = configureStore({
@@ -11,6 +12,7 @@ const store = configureStore({
     pastures: pasturesReducer,
     crops: cropsReducer,
     fields: fieldsReducer,
+    employees: employeesReducer,
     page: pageReducer
   },
 });
