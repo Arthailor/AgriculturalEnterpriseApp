@@ -8,6 +8,7 @@ import fieldjobsReducer from "./fieldjobsSlice"
 import warehousesReducer from "./warehousesSlice"
 import equipmentReducer from "./equipmentSlice"
 import repairsReducer from "./repairsSlice"
+import fieldequipmentReducer from "./fieldequipmentSlice"
 import pageReducer from "./pageSlice"
 
 const store = configureStore({
@@ -21,6 +22,7 @@ const store = configureStore({
     warehouses: warehousesReducer,
     equipment: equipmentReducer,
     repairs: repairsReducer,
+    fieldequipment: fieldequipmentReducer,
     page: pageReducer
   },
 });

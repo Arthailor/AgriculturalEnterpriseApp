@@ -207,3 +207,19 @@ export const updateRepair = async (id, repair) => {
     const { data } = await $host.put(`api/repairlogs/${id}`, repair)
     return data
 }
+
+//Field Equipment
+export const fetchFieldEquipment = async () => {
+    const { data } = await $host.get('api/equipmentonfields')
+    return data
+}
+
+export const createFieldEquipment = async (equipmentid, fieldid) => {
+    const { data } = await $host.post(`api/equipmentonfields?EquipmentId=${equipmentid}&FieldId=${fieldid}`)
+    return data
+}
+
+export const deleteFieldEquipment = async (equipmentid, fieldid) => {
+    const { data } = await $host.delete('api/equipmentonfields/' + equipmentid + "&" + fieldid)
+    return data
+}

@@ -3,7 +3,8 @@ import AnimalsAndPasturesMenu from "./pages/AnimalsAndPasturesMenu"
 import CropsAndFieldsListMenu from "./pages/CropsAndFieldsMenu"
 import EmployeesOnFieldsMenu from "./pages/EmployeesOnFieldsMenu"
 import EquipmentAndRepairListMenu from "./pages/EquipmentAndRepairMenu"
-import { MAIN_ROUTE, ANIMALS_AND_PASTURES_ROUTE, CROPS_AND_FIELDS_ROUTE, FIELDJOBS_ROUTE, EQUIPMENT_AND_REPAIRS_ROUTE} from "./utils/consts"
+import EquipmentOnFieldsMenu from "./pages/EquipmentOnFieldsMenu"
+import { MAIN_ROUTE, ANIMALS_AND_PASTURES_ROUTE, CROPS_AND_FIELDS_ROUTE, FIELDJOBS_ROUTE, EQUIPMENT_AND_REPAIRS_ROUTE, FIELDEQUIPMENT_ROUTE} from "./utils/consts"
 
 export const routes = [
     {
@@ -25,5 +26,9 @@ export const routes = [
     {
         path: EQUIPMENT_AND_REPAIRS_ROUTE,
         Component: EquipmentAndRepairListMenu
+    },
+    {
+        path: FIELDEQUIPMENT_ROUTE,
+        Component: EquipmentOnFieldsMenu
     }
 ]
