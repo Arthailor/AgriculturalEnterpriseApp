@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Form, Card, Button, Image } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
-import { ANIMALS_AND_PASTURES_ROUTE, CROPS_AND_FIELDS_ROUTE, FIELDJOBS_ROUTE } from '../utils/consts';
+import { ANIMALS_AND_PASTURES_ROUTE, CROPS_AND_FIELDS_ROUTE, EQUIPMENT_AND_REPAIRS_ROUTE, FIELDJOBS_ROUTE } from '../utils/consts';
 import { setName } from '../store/pageSlice';
 import { useDispatch } from 'react-redux';
 
@@ -37,6 +37,13 @@ export default function MainMenu() {
                 <Button className="d-flex justify-content-between" variant={"outline-primary"} style={{ width: "100%" }}>
                   <Image width="20" src="./farmer.png" fluid />
                   <div style={{ marginRight: 20 }}>Employees on fields</div>
+                  <div></div>
+                </Button>
+              </NavLink>
+              <NavLink to={EQUIPMENT_AND_REPAIRS_ROUTE} className="mt-3" style={{ textDecoration: 'none' }}>
+                <Button className="d-flex justify-content-between" variant={"outline-primary"} style={{ width: "100%" }}>
+                  <Image width="20" src="./wrench.png" fluid />
+                  <div style={{ marginRight: 20 }}>Equipment and repairs</div>
                   <div></div>
                 </Button>
               </NavLink>

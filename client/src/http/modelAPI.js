@@ -136,3 +136,74 @@ export const deleteFieldJob = async (employeeid, fieldid) => {
     const { data } = await $host.delete('api/workonfields/' + employeeid + "&" + fieldid)
     return data
 }
+
+//Warehouses
+export const fetchWarehouses = async () => {
+    const { data } = await $host.get('api/warehouses')
+    return data
+}
+
+export const createWarehouse = async (warehouse) => {
+    const { data } = await $host.post(`api/warehouses`, warehouse)
+    return data
+}
+
+export const deleteWarehouse = async (id) => {
+    const { data } = await $host.delete('api/warehouses/' + id)
+    return data
+}
+
+export const updateWarehouse = async (id, warehouse) => {
+    const { data } = await $host.put(`api/warehouses/${id}`, warehouse)
+    return data
+}
+
+//Equipment
+export const fetchEquipment = async (page, limit) => {
+    const { data } = await $host.get('api/equipment', {
+        params: {
+            page, limit
+        }
+    })
+    return data
+}
+
+export const createEquipment = async (warehouseid, equipment) => {
+    const { data } = await $host.post(`api/equipment?WarehouseId=${warehouseid}`, equipment)
+    return data
+}
+
+export const deleteEquipment = async (id) => {
+    const { data } = await $host.delete('api/equipment/' + id)
+    return data
+}
+
+export const updateEquipment = async (id, equipment) => {
+    const { data } = await $host.put(`api/equipment/${id}`, equipment)
+    return data
+}
+
+//Repairs
+export const fetchRepairs = async (page, limit) => {
+    const { data } = await $host.get('api/repairlogs', {
+        params: {
+            page, limit
+        }
+    })
+    return data
+}
+
+export const createRepair = async (equipmentid, employeeid, repair) => {
+    const { data } = await $host.post(`api/repairlogs?EquipmentId=${equipmentid}&EmployeeId=${employeeid}`, repair)
+    return data
+}
+
+export const deleteRepair = async (id) => {
+    const { data } = await $host.delete('api/repairlogs/' + id)
+    return data
+}
+
+export const updateRepair = async (id, repair) => {
+    const { data } = await $host.put(`api/repairlogs/${id}`, repair)
+    return data
+}
